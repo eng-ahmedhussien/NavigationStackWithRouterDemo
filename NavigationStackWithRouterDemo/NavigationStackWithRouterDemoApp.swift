@@ -11,7 +11,7 @@ import SwiftUI
 struct NavigationStackWithRouterDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView()
         }
     }
 }

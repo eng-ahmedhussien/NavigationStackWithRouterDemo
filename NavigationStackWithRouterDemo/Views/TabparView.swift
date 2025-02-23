@@ -37,42 +37,11 @@ struct TapBarView: View {
                           title:
                             "HomeTapBar",
                           tag: TabBarItem.home) {
-                ViewA()
-                   
-                    .onAppear {
-                        // UITabBar.showTabBar(animated: true)
-                    }
-                    .onDisappear {
-                        if selectionTap == .home {
-                            // UITabBar.hideTabBar()
-                        }
-                    }
+                HomeView()
             }
             
             CustomTabItem(imageName: "server.rack", title:"servicesTapBar", tag: TabBarItem.services) {
-                ViewB( description: " ViewB()")
-                    .onAppear {
-                        // UITabBar.showTabBar(animated: true)
-                    }
-                    .onDisappear {
-                        if selectionTap == .services {
-                            // UITabBar.hideTabBar()
-                        }
-                    }
-            }
-            
-            CustomTabItem(imageName: "cart.fill",
-                          title: "cartTapBar",
-                          tag: TabBarItem.cart) {
-                ViewB( description: " ViewB()")
-                    .onAppear {
-                        // UITabBar.showTabBar(animated: true)
-                    }
-                    .onDisappear {
-                        if selectionTap == .cart {
-                            // UITabBar.hideTabBar()
-                        }
-                    }
+                ListHabitView()
             }
         }
         .accentColor(.black)
@@ -104,7 +73,7 @@ struct CustomTabItem<Content: View>: View {
                 }
             }
             .tag(tag)
-            .navigationTitle(title)
+            //.navigationTitle(title)
     }
 }
 
