@@ -30,6 +30,11 @@ class AppCoordinator : AppCoordinatorProtocol {
         path.append(screen)
     }
     
+    func pushView<V: View>(_ view: V) {
+        let container = AnyViewContainer(view: AnyView(view))
+        path.append(container)
+    }
+    
     func presentSheet(_ sheet: SheetView) {
         self.sheetView = sheet
     }
@@ -126,5 +131,19 @@ extension FullScreen {
         case (.addHabit, .addHabit):
             return true
         }
+    }
+}
+
+// Wrapper for Any View Navigation
+struct AnyViewContainer: Identifiable, Hashable {
+    let id = UUID()
+    let view: AnyView
+    
+    static func == (lhs: AnyViewContainer, rhs: AnyViewContainer) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
