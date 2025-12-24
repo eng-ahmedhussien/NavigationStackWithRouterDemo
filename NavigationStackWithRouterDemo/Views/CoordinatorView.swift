@@ -12,7 +12,7 @@ struct CoordinatorView: View {
     
     var body: some View {
         NavigationStack(path: $appCoordinator.path) {
-           // TapBarView()
+            //TapBarView()
             appCoordinator.build(.tapbar)
                 .navigationDestination(for: Screen.self) { screen in
                     appCoordinator.build(screen)
